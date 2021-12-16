@@ -12,6 +12,9 @@ if not value return -1
 
 */
 
+// O(log n) = every time we double the size of n we add an extra step!
+
+
 const binarySearch = (arr, val) => {
   let left = 0;
   let right = arr.length - 1;
