@@ -15,29 +15,24 @@ if not value return -1
 const binarySearch = (arr, val) => {
   let left = 0;
   let right = arr.length - 1;
+  let half = Math.floor((left + right) / 2);
 
-  while (left < right) {
-    let half = Math.floor(arr.length / 2);
-    if (arr[half] === val) {
-      return half;
-    }
-    if (arr[left] < val) {
+  while (arr[half] !== val && left <= right) {
+    if (arr[half] < val) {
       left++
-      if (arr[left] === val) {
-        return left;
-      }
-    }
-    if (arr[right] > val) {
+    } else if (arr[half] > val){
       right--
-      if (arr[right] === val) {
-        return right;
-      }
     }
+    half = Math.floor((left + right) / 2);
   }
-  return -1
+  if (arr[half] === val) {
+    return half;
+  }
+  return -1;
 }
 
 console.log(binarySearch([1,2,3,4,5,6,7,8,9], 7)) // 6
+console.log(binarySearch([2,5,6,9,13,15,28,30], 5))
 console.log(binarySearch([1,2,3,4,5], 3)) //
 console.log(binarySearch([1,2,3,4], 2))
 console.log(binarySearch([1,2,3,4], 5))
