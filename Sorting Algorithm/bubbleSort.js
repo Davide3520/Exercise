@@ -1,4 +1,6 @@
 /*
+Bubble Sort: Place the biggest value in sorted position first
+
 start looping with i at the end
 inner loop from beginning
 if arr is greater than the next one swap
