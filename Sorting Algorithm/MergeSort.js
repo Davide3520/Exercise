@@ -1,4 +1,14 @@
 /*
+Time Complexity: O(n log n),
+
+the log n part is the number of time we split n as n grows. Why (n log n)? every time we split the array
+we have n log n comparison;
+
+Space Complexity: O(n);
+*/
+
+
+/*
 Sorting Function for Merging 2 sorted arrays
 */
 const mergeFunct = (arr1, arr2) => {
