@@ -14,6 +14,12 @@ Searching Algorithms
 
 Merge Sort
 */
+// Swap helper function
+const swap = (arr, i, j) => {
+  let temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
 
 const mergeFunc = (arr1, arr2) => {
 
@@ -26,3 +32,17 @@ const mergeSort = (arr) => {
 }
 
 console.log(mergeSort([55,20,36,49,1,2,5,10]))
+
+///////////////////////////////////////
+
+
+const pivot = (arr, start = Math.floor(arr.length / 2), end = arr.length - 1) => {
+
+}
+
+const quickSort = (arr, left = 0, rigth = arr.length - 1) => {
+
+}
+
+console.log(pivot([[4, 8, 100,0, 500, 2, 1, 5, 7, 6, 3]]))
+console.log(quickSort([[4, 8, 100,0, 500, 2, 1, 5, 7, 6, 3]]))
