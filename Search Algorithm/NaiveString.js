@@ -10,7 +10,6 @@ return count varl
 */
 
 const stringSearch = (mainString, patternString) => {
-
   let count = 0;
   for (let i = 0; i < mainString.length; i++) {
     for (let j = 0; j < patternString.length; j++) {
@@ -26,3 +25,37 @@ const stringSearch = (mainString, patternString) => {
 
 console.log(stringSearch('helloworld', 'll'))
 console.log(stringSearch('Hello fry Friend', 'fri'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let count = 0;
+// for (let i = 0; i < mainString.length; i++) {
+//   for (let j = 0; j < patternString.length; j++) {
+//     let pattern = patternString[j].toLowerCase();
+//     if (pattern !== mainString[i + j].toLowerCase()) break;
+//     if (j === patternString.length - 1) {
+//       count += 1;
+//     }
+//   }
+// }
+// return count;
