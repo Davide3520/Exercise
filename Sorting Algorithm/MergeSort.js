@@ -26,4 +26,18 @@ const mergeFunct = (arr1, arr2) => {
   }
   return arr;
 }
-console.log(mergeFunct([1,10,50], [2,14,99,100]))
+// console.log(mergeFunct([1,10,50], [2,14,99,100]))
+
+const mergeSort = (arr) => {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  let half = Math.floor(arr.length / 2);
+  let left = arr.slice(0, half);
+  let right = arr.slice(half)
+  let leftSlice = mergeSort(left)
+  let rightSlice = mergeSort(right);
+  return mergeFunct(leftSlice, rightSlice)
+}
+
+console.log(mergeSort([55,99,12,2,100,25]))
