@@ -46,3 +46,29 @@ const quickSort = (arr, left = 0, rigth = arr.length - 1) => {
 
 console.log(pivot([[4, 8, 100,0, 500, 2, 1, 5, 7, 6, 3]]))
 console.log(quickSort([[4, 8, 100,0, 500, 2, 1, 5, 7, 6, 3]]))
+
+
+/////////////////////////////////
+
+const getDigit = (num, i) => {
+  return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+}
+
+const digitCount = (num) => {
+  let string = String(num);
+  return string.length;
+}
+
+
+const maxDigit = (arr) => {
+  let max = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    max = Math.max(max, digitCount(arr[i]));
+  }
+  return max;
+}
+
+const radixSort = (arr) => {
+
+}
