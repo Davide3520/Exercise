@@ -3,6 +3,12 @@
 Not a comparison Algorithms
 we Check the size of each digit of a number
 works just for numbers
+
+Time Complexity: O(nk)
+n = length of the array
+k = number of digits
+
+space complexity: O(n + k);
 */
 
 const getDigit = (num, i) => {
