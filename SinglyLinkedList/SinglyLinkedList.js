@@ -48,10 +48,20 @@ class SinglyLinkedList {
     }
     return current;
   }
+  shift() {
+    if (!this.head) return undefined;
+    let currentHead = this.head; // pointing to head
+    this.head = currentHead.next; // the new head is the next value
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return currentHead;
+  }
 }
 
 let list = new SinglyLinkedList();
 list.push(1)
 list.push(2)
 list.push(3);
-
+console.log(list)
