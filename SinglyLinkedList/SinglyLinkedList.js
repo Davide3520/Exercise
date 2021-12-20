@@ -12,7 +12,7 @@ class SinglyLinkedList {
     this.length = 0;
   }
 
-  push(val) {
+  push(val) { // insert value at the end
     let newNode = new Node(val)
 
     if (!this.head) {
@@ -27,7 +27,7 @@ class SinglyLinkedList {
     return this;
   }
 
-  pop() {
+  pop() { // remove last value
     if (!this.head) {
       return undefined;
     }
@@ -48,7 +48,7 @@ class SinglyLinkedList {
     }
     return current;
   }
-  shift() {
+  shift() { // remove the current head
     if (!this.head) return undefined;
     let currentHead = this.head; // pointing to head
     this.head = currentHead.next; // the new head is the next value
@@ -58,10 +58,41 @@ class SinglyLinkedList {
     }
     return currentHead;
   }
+  unshift(val) { // add a value beginning
+    let newNode = new Node(val)
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head; // pointing new node to the old head
+      this.head = newNode // update the head
+    }
+    this.length++
+    return this;
+  }
+
+  get(num) { // get retrieve a node by it's position in the Linked List. not an index but it's a count.
+    if (num <= 0 || num >= this.length) {
+      return null;
+    }
+
+    let countPosition = 0;
+    let current = this.head;
+    while (countPosition !== num) {
+      current = current.next
+      countPosition++;
+    }
+    return current;
+  }
 }
 
+
 let list = new SinglyLinkedList();
-list.push(1)
-list.push(2)
+list.push(1);
+list.push(2);
 list.push(3);
-console.log(list)
+list.push(4);
+list.push(5);
+list.push(6);
+
