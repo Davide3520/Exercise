@@ -1,5 +1,5 @@
 class Node {
-  constructor(val,) {
+  constructor(val) {
     this.val = val;
     this.next = null;
   }
@@ -72,24 +72,35 @@ class SinglyLinkedList {
     return this;
   }
 
-  get(num) { // get retrieve a node by it's position in the Linked List. not an index but it's a count.
-    if (num <= 0 || num >= this.length) {
+  get(index) { // get retrieve a node by it's position in the Linked List. not an index but it's a count.
+    if (index < 0 || index >= this.length) {
       return null;
     }
 
     let countPosition = 0;
     let current = this.head;
-    while (countPosition !== num) {
-      current = current.next
+
+    while (countPosition !== index) {
+      current = current.next;
       countPosition++;
     }
     return current;
+  }
+
+  set(value ,position) { // update a value in a determined position with the given value;
+    let foundNode = this.get(position);
+
+    if (foundNode) {
+      foundNode.val = value;
+      return true;
+    }
+    return false;
   }
 }
 
 
 let list = new SinglyLinkedList();
-list.push(1);
+list.push("HELLO");
 list.push(2);
 list.push(3);
 list.push(4);
