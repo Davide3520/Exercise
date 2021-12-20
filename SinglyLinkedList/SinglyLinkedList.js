@@ -117,8 +117,22 @@ class SinglyLinkedList {
     return true;
   }
 
-  remove() {
-    
+  remove(index) { //remove a value from a specific index
+    if (index < 0 || index >= this.length) return null;
+    if (index === this.length - 1) {
+      this.pop()
+    }
+    if (index === 0) {
+      this.unshift();
+    }
+
+    let foundNode = this.get(index - 1); // retrieve the value from one before the one we want to remove
+
+    let valueToRemove = foundNode.next;
+    foundNode.next = valueToRemove.next
+
+    this.length--;
+    return valueToRemove
   }
 }
 
@@ -131,4 +145,5 @@ list.push(4);
 list.push(5);
 list.push("TAILLLL");
 
-
+console.log(list.remove(1))
+console.log(list)
