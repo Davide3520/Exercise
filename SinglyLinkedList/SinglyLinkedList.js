@@ -87,14 +87,38 @@ class SinglyLinkedList {
     return current;
   }
 
-  set(value ,position) { // update a value in a determined position with the given value;
-    let foundNode = this.get(position);
+  set(index, value) { // update a value in a determined position with the given value;
+    let foundNode = this.get(index);
 
     if (foundNode) {
       foundNode.val = value;
       return true;
     }
     return false;
+  }
+
+  insert(index, value) { // insert a new node at a specific position we specify.
+    if (index < 0 || index > this.length) {
+      return false;
+    } else if (index === this.length) {
+      this.push(value)
+      return true;
+    } else if (index === 0) {
+      this.unshift(value)
+      return true;
+    }
+
+    let newNode = new Node(value);
+    let previousNode = this.get(index - 1);
+    let temp = previousNode.next; // placeholder variable. Keepn the connection to next available or it will be destroyed
+    previousNode.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
+  }
+
+  remove() {
+    
   }
 }
 
@@ -105,5 +129,6 @@ list.push(2);
 list.push(3);
 list.push(4);
 list.push(5);
-list.push(6);
+list.push("TAILLLL");
+
 
