@@ -5,6 +5,18 @@ class Node {
   }
 }
 
+/*
+
+Time Complexity
+
+Insertion: O(1)
+Removal: Depends beginning = O(1);
+end = O(n)
+Searching: O(n)
+Access: O(n)
+
+*/
+
 class SinglyLinkedList {
   constructor() {
     this.head = null;
