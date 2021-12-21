@@ -135,7 +135,7 @@ class SinglyLinkedList {
       this.pop()
     }
     if (index === 0) {
-      this.unshift();
+      this.shift();
     }
 
     let foundNode = this.get(index - 1); // retrieve the value from one before the one we want to remove
@@ -166,9 +166,9 @@ class SinglyLinkedList {
 
 let list = new SinglyLinkedList();
 list.push("HELLO");
-list.push(2);
-list.push(3);
-list.push(4);
-list.push(5);
-list.push("TAILLLL");
+list.push("HOW")
+list.push("ARE")
+list.push("YOU")
+
+console.log(list)
 
