@@ -20,14 +20,39 @@ example: [1, 8, 6, 2, 9, 4] = L-> 8 x (4 - 1) = 24. 4 -> position highest number
 
 // L x W
 
-const waterContainer = (height) => {
+// const waterContainer = (height) => {
+//   let maxArea = 0;
+//   for (let p1 = 0; p1 < height.length; p1++) {
+//     for (let p2 = p1 + 1; p2 < height.length; p2++) {
+//       let length = Math.min(height[p1], height[p2]);
+//       let width = p2 - p1;
+//       let area = length * width;
+//       maxArea = Math.max(maxArea, area);
+//     }
+//   }
+//   return maxArea;
+// }
+
+/*
+Optimized solution 2 shift pointers
+*/
+
+const waterContainer = (heights) => {
+  let p1 = 0;
+  let p2 = heights.length - 1;
   let maxArea = 0;
-  for (let p1 = 0; p1 < height.length; p1++) {
-    for (let p2 = p1 + 1; p2 < height.length; p2++) {
-      let length = Math.min(height[p1], height[p2]);
-      let width = p2 - p1;
-      let area = length * width;
-      maxArea = Math.max(maxArea, area);
+
+  while (p1 < p2) {
+    const length = Math.min(heights[p1], heights[p2]);
+    let width = p2 - p1;
+    let area = length * width;
+    maxArea = Math.max(maxArea, area);
+
+    if (heights[p1] <= heights[p2]) {
+      p1++;
+
+    } else{
+      p2--;
     }
   }
   return maxArea;
