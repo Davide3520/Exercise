@@ -16,4 +16,24 @@ example: [1, 8, 6, 2, 9, 4] = L-> 8 x (4 - 1) = 24. 4 -> position highest number
 
 [7, 2, 3, 4, 9] 7 x 4 = 28.
 
-*/      
+*/
+
+// L x W
+
+const waterContainer = (height) => {
+  let maxArea = 0;
+  for (let p1 = 0; p1 < height.length; p1++) {
+    for (let p2 = p1 + 1; p2 < height.length; p2++) {
+      let length = Math.min(height[p1], height[p2]);
+      let width = p2 - p1;
+      let area = length * width;
+      maxArea = Math.max(maxArea, area);
+    }
+  }
+  return maxArea;
+}
+
+console.log(waterContainer([7, 2, 3, 4, 9]))
+console.log(waterContainer([]))
+console.log(waterContainer([1, 8, 6, 2, 9, 4]))
+
