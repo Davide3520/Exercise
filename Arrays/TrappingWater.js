@@ -47,29 +47,30 @@ step 1:
 4- repeat for other pointer
 */
 
-const getTrappedRainwater = function(heights) {
+const getTrappedRainwater = function(height) {
+  let total = 0;
+  let left = 0;
+  let right = height.length - 1;
+  let maxLeft = 0, maxRight = 0;
 
-  let left = 0, right = heights.length - 1, totalWater = 0, maxLeft = 0, maxRight = 0;
-
-  while(left < right) {
-    if(heights[left] <= heights[right]) {
-      if(heights[left] >= maxLeft) {
-        maxLeft = heights[left]
+  while (left < right) {
+    if (height[left] <= height[right]) {
+      if (height[left] >= maxLeft) {
+        maxLeft = height[left];
       } else {
-        totalWater += maxLeft - heights[left];
+        total += maxLeft - height[left];
       }
       left++;
     } else {
-      if(heights[right] >= maxRight) {
-          maxRight = heights[right];
+      if (height[right] >= maxRight) {
+        maxRight = height[right];
       } else {
-          totalWater += maxRight - heights[right];
+        total += maxRight - height[right];
       }
-
       right--;
     }
   }
-
-  return totalWater;
+  return total;
 }
 console.log(getTrappedRainwater([0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]))
+
