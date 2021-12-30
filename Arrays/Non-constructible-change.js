@@ -1,6 +1,11 @@
 /*
 Given an array of positive integers representing the values of coins in your possessions, write a function that returns the minimum amount of change that you CANNOT create.
 */
+
+/*
+Time: O(n log n)
+Space: O(1)
+*/
 const nonConstrChange = (coins) => {
   coins.sort((a,b)=> a- b);
   let amount = 0;
