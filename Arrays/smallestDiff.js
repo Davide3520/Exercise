@@ -1,7 +1,10 @@
 /*
 Write a function that takes in 2 non empty array of integers, find the pair of numbers one from each array, whose absolute difference is closest to zero. Return an array containing these 2 nunmbers, with the number of the first array in the first position.
 */
-
+/*
+Time: O(nLog(n) + mLog(m)) where n is the length of arr1, and m is the length of arr2;
+Space: O(1) we are not storing anything that depends on the length of the array.
+*/
 const smallestDiff = (arr1, arr2) => {
   arr1.sort((a, b) => a - b);
   arr2.sort((a, b) => a - b);
