@@ -2,8 +2,9 @@
 You are given an array of integer. write a function that moves all instances of that integer in the array to the end fo the array and return the array. the function should perform this in place (Mutate the input array);
 */
 
+// Time: O(n) where n is the length of the array | Space: O(1);
 const moveToEnd = (arr, num) => {
-  let i = 0
+  let i = 0;
   let j = arr.length - 1;
 
   while (i < j) {
