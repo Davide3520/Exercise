@@ -50,6 +50,8 @@ Space: o(a + b)
 //   return result;
 // }
 
+//OPTIMAL SOLUTION
+// Time: o(a + b) Space: o(1). same time but different space.
 const typedOut = (s, t) => {
   let p2 = t.length - 1;
   let p1 = s.length - 1;
