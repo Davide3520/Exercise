@@ -24,30 +24,70 @@ Time: o(a + b) a b sizes of the inputs array
 Space: o(a + b)
 */
 
+// const typedOut = (s, t) => {
+//   let arrS = builtArr(s), arrT = builtArr(t);
+
+//   if (arrS.length !== arrT.length) {
+//     return false;
+
+//   } else {
+//     return arrS.join('') === arrT.join('');
+//   }
+// }
+
+// const builtArr = (string) => {
+//   let result = [];
+
+//   for (let p = 0; p < string.length; p++) {
+//     let currentChar = string[p];
+
+//     if (currentChar !== '#') {
+//       result.push(currentChar);
+//     } else {
+//       result.pop();
+//     }
+//   }
+//   return result;
+// }
+
 const typedOut = (s, t) => {
-  let arrS = builtArr(s), arrT = builtArr(t);
+  let p2 = t.length - 1;
+  let p1 = s.length - 1;
 
-  if (arrS.length !== arrT.length) {
-    return false;
+  while (p1 >= 0 || p2 >= 0) {
+    if (s[p1] === '#' || t[p2] === '#') {
+      if (s[p1] === '#') {
+        let backCount = 2;
+        while (backCount > 0) {
+          p1--;
+          backCount--;
 
-  } else {
-    return arrS.join('') === arrT.join('');
-  }
-}
+          if (s[p1] === '#') {
+            backCount += 2;
+          }
+        }
+      }
+      if (t[p2] === '#') {
+        let backCount = 2;
+        while (backCount > 0) {
+          p2--;
+          backCount--;
 
-const builtArr = (string) => {
-  let result = [];
-
-  for (let p = 0; p < string.length; p++) {
-    let currentChar = string[p];
-
-    if (currentChar !== '#') {
-      result.push(currentChar);
+          if (t[p2] === '#') {
+            backCount += 2;
+          }
+        }
+      }
     } else {
-      result.pop();
+      if (s[p1] !== t[p2]) {
+        return false;
+      } else {
+        p1--;
+        p2--;
+      }
     }
   }
-  return result;
+  return true;
 }
 
 console.log(typedOut("ab#c", "ad#c")) // TRUE
