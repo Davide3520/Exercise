@@ -19,6 +19,9 @@ Explanation: s becomes "c" while t becomes "b".
 
 /*
 BRUTE FORCE SOLUTION
+
+Time: o(a + b) a b sizes of the inputs array
+Space: o(a + b)
 */
 
 const typedOut = (s, t) => {
