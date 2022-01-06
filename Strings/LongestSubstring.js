@@ -15,4 +15,32 @@ Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 */
 
+/* Brute Force
+Time: o(n^2);
+Space: o(n);
+*/
+const longestSubString = (s) => {
+  if (s.length <= 1) {
+    return s.length;
+  }
+  let longest = 0;
+  for (let i = 0; i < s.length; i++) {
+    let seenChar = {}, currentLength = 0;
 
+    for (let j = i; j < s.length; j++) {
+      const currentChar = s[j];
+      if (!seenChar[currentChar]) {
+        currentLength++;
+        seenChar[currentChar] = true;
+        longest = Math.max(longest, currentLength);
+      } else {
+        break;
+      }
+    }
+  }
+  return longest;
+}
+
+console.log(longestSubString("abcabcbb"))
+console.log(longestSubString("bbbbb"))
+console.log(longestSubString("pwwkew"))
