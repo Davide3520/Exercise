@@ -42,7 +42,10 @@ Space: o(n);
 // }
 
 /* Sliding Window */
-
+/*
+Time: o(N)
+Space: o(N);
+*/
 const longestSubString = (string) => {
   if (string.length <= 1) return string.length;
 
