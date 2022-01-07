@@ -11,6 +11,8 @@ Explanation: You could delete the character 'c'.
 Input: s = "abc"
 Output: false
 
+Time: o(n)
+Space: o(1);
 */
 const almostAPalindrome = (s) => {
   s = s.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
