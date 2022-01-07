@@ -18,7 +18,11 @@ Explanation: s is an empty string "" after removing non-alphanumeric characters.
 Since an empty string reads the same forward and backward, it is a palindrome.
 */
 
-/* Compare against reverse */
+/* Compare against reverse
+Time: o(n)
+Space: o(n)
+*/
+
 const isPalindrome = (s) => {
   s = s.replace(/[^ A-Z a-z 0 - 9]/g, '').toLowerCase();
   s = s.split(' ').join('')
