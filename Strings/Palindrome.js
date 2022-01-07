@@ -24,9 +24,7 @@ Space: o(n)
 */
 
 // const isPalindrome = (s) => {
-//   s = s.replace(/[^ A-Z a-z 0 - 9]/g, '').toLowerCase();
-//   s = s.split(' ').join('')
-
+//   s = s.replace(/[^A-Za-z0-9]/g,'').toLowerCase();
 //   let rev = "";
 
 //   for (let i = s.length - 1; i >= 0; i--) {
@@ -36,20 +34,39 @@ Space: o(n)
 // }
 
 /* 2 Pointer from outside */
+// const isPalindrome = (s) => {
+//   s = s.replace(/[^A-Za-z0-9]/g,'').toLowerCase();
+//   let left = 0, right = s.length - 1;
+//   while (left < right) {
+//     if (s[left] !== s[right]) {
+//       return false;
+//     }
+//     left++;
+//     right--;
+//   }
+//   return true;
+// }
 
+/* 2 Pointers From Inside */
 const isPalindrome = (s) => {
-  s = s.replace(/[^ A-Z a-z 0 - 9]/g, '').toLowerCase();
-  s = s.split(' ').join('')
-  let left = 0, right = s.length - 1;
-  while (left < right) {
+  s = s.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+  let left = Math.floor(s.length / 2)
+  let right = left;
+
+  if (s.length % 2 === 0) {
+    left--;
+  }
+  while (left >= 0 && right < s.length) {
     if (s[left] !== s[right]) {
       return false;
     }
-    left++;
-    right--;
+    left--;
+    right++;
   }
   return true;
 }
+
+
 console.log(isPalindrome("A man, a plan, a canal: Panama"))
 console.log(isPalindrome("race a car"))
 console.log(isPalindrome(" "));
