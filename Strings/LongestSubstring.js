@@ -19,24 +19,44 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 Time: o(n^2);
 Space: o(n);
 */
-const longestSubString = (s) => {
-  if (s.length <= 1) {
-    return s.length;
-  }
-  let longest = 0;
-  for (let i = 0; i < s.length; i++) {
-    let seenChar = {}, currentLength = 0;
+// const longestSubString = (s) => {
+//   if (s.length <= 1) {
+//     return s.length;
+//   }
+//   let longest = 0;
+//   for (let i = 0; i < s.length; i++) {
+//     let seenChar = {}, currentLength = 0;
 
-    for (let j = i; j < s.length; j++) {
-      const currentChar = s[j];
-      if (!seenChar[currentChar]) {
-        currentLength++;
-        seenChar[currentChar] = true;
-        longest = Math.max(longest, currentLength);
-      } else {
-        break;
-      }
+//     for (let j = i; j < s.length; j++) {
+//       const currentChar = s[j];
+//       if (!seenChar[currentChar]) {
+//         currentLength++;
+//         seenChar[currentChar] = true;
+//         longest = Math.max(longest, currentLength);
+//       } else {
+//         break;
+//       }
+//     }
+//   }
+//   return longest;
+// }
+
+/* Sliding Window */
+
+const longestSubString = (string) => {
+  if (string.length <= 1) return string.length;
+
+  let longest = 0, seen = {}, left = 0;
+
+  for (let right = 0; right < string.length; right++) {
+    const current = string[right];
+    const seenChar = seen[current];
+
+    if (seenChar >= left) {
+      left = seenChar + 1;
     }
+    seen[current] = right;
+    longest = Math.max(longest, right - left + 1);
   }
   return longest;
 }
