@@ -18,6 +18,18 @@ Explanation: s is an empty string "" after removing non-alphanumeric characters.
 Since an empty string reads the same forward and backward, it is a palindrome.
 */
 
+/* Compare against reverse */
+const isPalindrome = (s) => {
+  s = s.replace(/[^ A-Z a-z 0 - 9]/g, '').toLowerCase();
+  s = s.split(' ').join('')
+
+  let rev = "";
+
+  for (let i = s.length - 1; i >= 0; i--) {
+    rev += s[i];
+  }
+  return s === rev;
+}
 
 
 console.log(isPalindrome("A man, a plan, a canal: Panama"))
