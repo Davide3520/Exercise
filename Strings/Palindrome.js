@@ -23,19 +23,33 @@ Time: o(n)
 Space: o(n)
 */
 
+// const isPalindrome = (s) => {
+//   s = s.replace(/[^ A-Z a-z 0 - 9]/g, '').toLowerCase();
+//   s = s.split(' ').join('')
+
+//   let rev = "";
+
+//   for (let i = s.length - 1; i >= 0; i--) {
+//     rev += s[i];
+//   }
+//   return s === rev;
+// }
+
+/* 2 Pointer from outside */
+
 const isPalindrome = (s) => {
   s = s.replace(/[^ A-Z a-z 0 - 9]/g, '').toLowerCase();
   s = s.split(' ').join('')
-
-  let rev = "";
-
-  for (let i = s.length - 1; i >= 0; i--) {
-    rev += s[i];
+  let left = 0, right = s.length - 1;
+  while (left < right) {
+    if (s[left] !== s[right]) {
+      return false;
+    }
+    left++;
+    right--;
   }
-  return s === rev;
+  return true;
 }
-
-
 console.log(isPalindrome("A man, a plan, a canal: Panama"))
 console.log(isPalindrome("race a car"))
 console.log(isPalindrome(" "));
