@@ -1,0 +1,4 @@
+/*
+You are given a string pf available charachters and a string representing a document that you need to generate. you are only able to generate the document if the frequency of unique charachters in the chars string is greater than or equal to the frequency of the document.
+
+*/
