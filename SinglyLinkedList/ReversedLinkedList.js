@@ -32,6 +32,8 @@ while (currentNode) {
 
 */
 //ex: 1->2->3->4->null
+
+/*Time: o(n)  Space: o(1) */
 const linked = (head) => {
   let previous = null; // null
   let currentNode = head; // 1
