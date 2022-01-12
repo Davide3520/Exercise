@@ -18,13 +18,6 @@ while (currentNode) {
 }
 */
 
-// class Linked {
-//   constructor(value) {
-//     this.value = value;
-//     this.next = null;
-//   }
-// }
-
 /*
 - current = head -> null
 - prev = current
@@ -35,14 +28,27 @@ while (currentNode) {
 
 /*Time: o(n)  Space: o(1) */
 const linked = (head) => {
-  let previous = null; // null
-  let currentNode = head; // 1
+  let prev = null;
+  let current = head;
 
-  while (currentNode) { // currentNode is true
-    let next = currentNode.next; // reference to the next value  2
-    currentNode.next = previous // null
-    previous = currentNode; // 1->null
-    currentNode = next; // 2
+  while (current) {
+    let next = current.next;
+    current.next = prev;
+    prev = current;
+    current = next;
   }
-  return previous;
+  return prev;
 }
+
+
+
+// let previous = null; // null
+// let currentNode = head; // 1
+
+// while (currentNode) { // currentNode is true
+//   let next = currentNode.next; // reference to the next value  2
+//   currentNode.next = previous // null
+//   previous = currentNode; // 1->null
+//   currentNode = next; // 2
+// }
+// return previous;
