@@ -39,6 +39,9 @@ Step to reverse LinkedList:
 then we keep track of that value by starting a varialbe start = value
 - then increment posiiton and current node
 - ask again if it is an important value? YES -> create a variable called tail = important value
+
+time: o(n)
+space: o(n)
 */
 
 class ListNode {
@@ -73,7 +76,7 @@ const segmentReverse = (head, m, n) => {
   }
 
   let newList = null, tail = currentNode;
-  
+
   while (currentPosition >= m && currentPosition <= n) {
     const next = currentNode.next;
     currentNode.next = newList;
